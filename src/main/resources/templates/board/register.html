@@ -9,19 +9,26 @@
 </head>
 <body>
     <div layout:fragment="content">
-
+    <form action="/board/register" method="post" th:object="${boardDTO}">
         <div class="row mt-5">
             <div class="col shadow">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">제목</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1">
+                <div class="mb-3 mt-3">
+                    <label for="title" class="form-label">제목</label>
+                    <input type="text" class="form-control" th:field="*{title}" id="title" placeholder="여기다가 제목을써봐">
+                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="fieldError"></p>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label for="content" class="form-label">내용</label>
+                    <textarea class="form-control" th:field="*{content}" id="content" rows="3"></textarea>
+                    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="fieldError"></p>
                 </div>
             </div>
         </div>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-dark">저장</button>
+            <a type="button" href="/board/list" class="btn btn-dark">목록</a>
+        </div>
+    </form>
 
 
         여기에 등록작성할꺼임

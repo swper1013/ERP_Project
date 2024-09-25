@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.jaxb.SpringDataJaxb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -41,11 +42,15 @@ public class PageResponesDTO<E> {
         this.size = pageRequestDTO.getSize();
         this.total = total;
 
+        this.dtoList = dtoList;
+
         this.end = (int)(Math.ceil(this.page / 10.0)) * 10;
         this.start = this.end - 9;
         int last = (int) (Math.ceil(total/(double) size));
         this.end = end > last ? last : end;
         this.prev = this.start > 1;
         this.next = total > this.end * this.size;
+
+
     }
 }
