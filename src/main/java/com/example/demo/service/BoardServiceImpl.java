@@ -85,7 +85,6 @@ public class BoardServiceImpl implements BoardService {
                         map(board -> mapper.map(board, BoardDTO.class))
                         .collect(Collectors.toList());
 
-
         return PageResponesDTO.<BoardDTO>withAll()
                 .pageRequestDTO(pageRequestDTO)
                 .dtoList(boardDTOList)

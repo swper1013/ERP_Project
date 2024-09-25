@@ -19,11 +19,16 @@ public class Board extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bno; //글번호 pk
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 50, nullable = false)
     private String title; //제목
 
-    @Column
+    @Column (columnDefinition = "text")
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "mno")
+    private MemberShip memberShip;
+
     private String writer;
 
     //등록일자 혹은 만든이 기타등등이 들어감
