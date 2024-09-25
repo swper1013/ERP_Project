@@ -16,13 +16,15 @@
     <div th:replace="~{fragments/header::header}"></div>
     <!--fragments/header.html 파일의 header 라는 id 를 가진 요소를 해당 위치에 삽입-->
 
-    <div th:replace="~{fragments/footer::footer}"></div>
-    <!--fragments/footer.html 파일의 footer 라는 id 를 가진 요소를 해당 위치에 삽입-->
-
     <div class="container">
         <div layout:fragment="content" class="content"></div>
         <!--content.html 삽입-->
     </div>
+
+    <div th:replace="~{fragments/footer::footer}"></div>
+    <!--fragments/footer.html 파일의 footer 라는 id 를 가진 요소를 해당 위치에 삽입-->
+
+
 
     <th:block layout:fragment="script">
     </th:block>

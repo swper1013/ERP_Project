@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class MeterialDTO {
+public class MaterialDTO {
     private int matNum;         //글번호
     private String matName;     //자재명
     private String matCode;     //자재코드
