@@ -4,18 +4,16 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity //엔티티임을 명시
+@Entity
 @Getter
 @Setter
-@ToString
-@NoArgsConstructor // 기본생성자
-@AllArgsConstructor // 모든필드값을 가지고 있는 생성자
-public class UsersEntity extends BaseEntity {
-
-
+@NoArgsConstructor
+@AllArgsConstructor
+@MappedSuperclass
+public class UsersEntity_임시 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long mno;   //글번호 pk
+    @Column(length = 15, nullable = false, unique = true)
+    private String id; // ID
 
     @Column(length = 15, nullable = false, unique = true)
     private String pass; // 비밀번호
@@ -52,6 +50,5 @@ public class UsersEntity extends BaseEntity {
 
     @Column(length = 20, nullable = false, unique = true)
     private String B2BNumber; //사업자등록번호
-
 
 }

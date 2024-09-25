@@ -10,6 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 
 @Getter
 @Setter
@@ -18,9 +19,9 @@ import java.time.LocalDate;
 public class BaseEntity {
     @CreatedDate
     @Column(name = "regdate", updatable = false)
-    private LocalDate regidate;
+    private LocalDate regidate; // 등록 일시
 
     @LastModifiedDate
     @Column(name = "moddate")
-    private LocalDate modDate;
+    private LocalDate modDate; // 수정 일시
 }

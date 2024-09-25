@@ -16,7 +16,7 @@ public class Reply extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long rno;   //글번호 pk
+    private Long nno;   //글번호 pk
 
     @Column(length = 255, nullable = false)
     private String textp;   //제목

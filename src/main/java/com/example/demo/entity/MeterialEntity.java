@@ -12,4 +12,5 @@ import java.time.LocalDate;
 @EntityListeners(value = {AuditingEntityListener.class})
 public class MeterialEntity {
 
+
 }
