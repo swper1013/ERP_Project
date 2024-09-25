@@ -27,7 +27,8 @@ public class Board extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "mno")
-    private MemberShip memberShip;
+    private UsersEntity usersEntity;
+
 
     private String writer;
 

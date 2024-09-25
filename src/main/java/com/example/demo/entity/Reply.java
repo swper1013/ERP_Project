@@ -24,7 +24,7 @@ public class Reply extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "mno")
-    private MemberShip memberShip;
+    private UsersEntity usersEntity;
 
     @ManyToOne
     @JoinColumn(name = "bno")

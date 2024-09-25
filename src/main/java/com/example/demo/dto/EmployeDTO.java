@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Setter
 @ToString
 public class EmployeDTO {
+    private Long eno;               //번호
     private String name;            //이름
     private int age;                //나이
     private String gender;          //성별
