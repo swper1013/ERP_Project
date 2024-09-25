@@ -30,8 +30,10 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public Long register(BoardDTO boardDTO) {
+        log.info("서비스로 들어온 dto: " + boardDTO);
         //등록
         Board board = mapper.map(boardDTO, Board.class);
+        log.info("서비스에서 변환된 dto > entity : " + board);
         boardRepository.save(board);
 
 
@@ -70,6 +72,7 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public PageResponesDTO<BoardDTO> list(PageRequestDTO pageRequestDTO) {
         String[] types = pageRequestDTO.getTypes();
+
         String keyword = pageRequestDTO.getKeyword();
         Pageable pageable = pageRequestDTO.getPageable("bno");
 

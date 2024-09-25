@@ -22,6 +22,7 @@ public class Board extends BaseEntity {
     @Column(length = 500, nullable = false)
     private String title; //제목
 
+    @Column
     private String content;
     private String writer;
 

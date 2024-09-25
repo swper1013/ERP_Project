@@ -31,7 +31,7 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
         JPQLQuery<Board> query = from(board); //select * from board
         System.out.println(query); //select * from board
 
-        BooleanBuilder booleanBuilder = new BooleanBuilder();
+
         //and, or등을 사용하는 객체
 
 
@@ -39,23 +39,31 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
         //%ddd% select * from board where title = '%'안녕'%
         //String[] types 만들어서 올꺼예요, t c w title content writer
         //tc title = %keyword% or content = %keyword%
-        for(String str : types) {
-            switch (str) {
-                case "t" :
-                    booleanBuilder.or(board.title.contains(keyword)); //%q%
-                    break;
+        //select * from board where a = s or
 
-                case "c" :
-                    booleanBuilder.or(board.content.contains(keyword)); //%q%
-                    break;
+        if (types != null && types.length > 0 && keyword != null) {
+            BooleanBuilder booleanBuilder = new BooleanBuilder();
+            for(String str : types) {
+                switch (str) {
+                    case "t" :
+                        booleanBuilder.or(board.title.contains(keyword)); //%q%
+                        break;
 
-                case "w" :
-                    booleanBuilder.or(board.writer.contains(keyword)); //%q%
-                    break;
+                    case "c" :
+                        booleanBuilder.or(board.content.contains(keyword)); //%q%
+                        break;
+
+                    case "w" :
+                        booleanBuilder.or(board.writer.contains(keyword)); //%q%
+                        break;
+                }
             }
+
+            query.where(booleanBuilder);
         }
 
-        query.where(booleanBuilder);
+
+
         System.out.println("where문 추가" + query);
 
         query.where(board.bno.gt(0L));
