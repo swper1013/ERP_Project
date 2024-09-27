@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public class MaterialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long matNum;
+    private Long num;
 
     @Column(length = 10,nullable = false)
     private String matName;//자재명
