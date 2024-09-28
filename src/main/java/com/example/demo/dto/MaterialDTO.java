@@ -22,8 +22,8 @@ public class MaterialDTO {
     private LocalDate matBuyDate;  //매입일자
     private String matText;     //메모
 
-    @NotEmpty
-    private String content;
+
+
     private String writer;
     private LocalDate regidate;
     private LocalDate modDate;

@@ -10,9 +10,9 @@ public interface MaterialService {
 
     public void register(MaterialDTO materialDTO);
     public List<MaterialDTO> selectAll();
-    public MaterialDTO read(Long mno);
+    public MaterialDTO read(Long num);
     public void update(MaterialDTO materialDTO);
-    public void delete(Long mno);
+    public Long delete(Long num);
     public PageResponesDTO<MaterialDTO> list(PageRequestDTO pageRequestDTO);
 
 

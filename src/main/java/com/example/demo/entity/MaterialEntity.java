@@ -19,7 +19,7 @@ public class MaterialEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long num;
 
-    @Column(length = 10,nullable = false)
+    @Column(length = 250,nullable = false)
     private String matName;//자재명
     @Column(nullable = false,unique = true)
     private String matCode;//자재코드
