@@ -46,9 +46,9 @@ public class MaterialServiceImpl implements MaterialService {
     }
 
     @Override
-    public MaterialDTO read(Long mno) {
+    public MaterialDTO read(Long num) {
         MaterialEntity materialEntity =
-                materialRepository.findById(mno).orElseThrow(EntityNotFoundException::new);
+                materialRepository.findById(num).orElseThrow(EntityNotFoundException::new);
         MaterialDTO materialDTO = mapper.map(materialEntity, MaterialDTO.class);
         return materialDTO;
     }
@@ -56,15 +56,35 @@ public class MaterialServiceImpl implements MaterialService {
     @Override
     public void update(MaterialDTO materialDTO) {
 
+        if (materialDTO.getNum() == null) {
+            throw new IllegalArgumentException("아 혹시 이부분인가요?");
+        }
         MaterialEntity materialEntity = materialRepository.findById(materialDTO.getNum())
                 .orElseThrow(EntityNotFoundException::new);
-        materialEntity.setContent(materialDTO.getContent());
+
+        materialEntity.setMatName(materialDTO.getMatName());
+        materialEntity.setMatCode(materialDTO.getMatCode());
+        materialEntity.setMatAmount(materialDTO.getMatAmount());
+        materialEntity.setMatPrice(materialDTO.getMatPrice());
+        materialEntity.setMatBuyPlace(materialDTO.getMatBuyPlace());
+        materialEntity.setMatBuyNum(materialDTO.getMatBuyNum());
+        materialEntity.setMatText(materialDTO.getMatText());
+        materialEntity.setMatBuyDate(materialDTO.getMatBuyDate());
+
+
 
     }
 
     @Override
-    public void delete(Long mno) {
-        materialRepository.deleteById(mno);
+    public Long delete(Long num) {
+        MaterialEntity materialEntity =  materialRepository.findById(num).get();
+        if (materialEntity != null) {
+            materialRepository.deleteById(num);
+            log.info("혹시 서비스까진 오셨나요");
+            return materialEntity.getNum();
+        } else {
+            return null;
+        }
 
     }
 
