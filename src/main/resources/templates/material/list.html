@@ -98,8 +98,11 @@
             </div>
         </div>
 
-        <form action="/material/modify" method="post" class="col shadow subpage">
+        <form th:action="@{/material/modify}"  method="post" class="col shadow subpage">
             <div>
+                <div class="row mt-2">
+                    <img class="col imglink" src="" alt="미리보기 이미지" />
+                </div>
                 <div class="row mt-2">
                     <div class="col">자재명</div>
                     <div class="col matNameOne"></div>
@@ -139,7 +142,7 @@
             </div>
         </form>
 
-        <form action="/material/modify" method="post" class="col shadow subpage2">
+        <form th:action="@{/material/modify}" method="post" class="col shadow subpage2">
             <div>
 
                 <div class="col matNum"></div>
@@ -222,6 +225,7 @@
                   num= $(this).data("num");
                     for (let i = 0; i < dtoList.length; i++) {
                         if (dtoList[i].num === num) {
+                            $(".imglink").attr("src", dtoList[i].imgUrl);
                             $(".matNameOne").text(dtoList[i].matName);
                             $(".matCodeOne").text(dtoList[i].matCode);
                             $(".matAmountOne").text(dtoList[i].matAmount);

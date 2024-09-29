@@ -15,6 +15,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,6 +36,13 @@ public class MaterialServiceImpl implements MaterialService {
         materialRepository.save(materialEntity);
 
     }
+    public String uploadFile(MultipartFile file) {
+        // 파일 업로드 로직 구현 (예: AWS S3, 로컬 디렉토리 등)
+        // 업로드된 파일의 URL을 반환
+        return "";
+    }
+
+
 
     @Override
     public List<MaterialDTO> selectAll() {

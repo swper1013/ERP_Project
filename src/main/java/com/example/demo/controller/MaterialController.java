@@ -26,7 +26,7 @@ import java.util.Collections;
 public class MaterialController {
     private final MaterialService materialService;
 
-    @GetMapping("register")
+    @GetMapping("/register")
     public  void register(MaterialDTO materialDTO){
 
     }
@@ -39,6 +39,12 @@ public class MaterialController {
             log.info(bindingResult.getAllErrors());
             return "material/register";
         }
+        if (!materialDTO.getImgFile().isEmpty()) {
+            String imgUrl = materialService.uploadFile(materialDTO.getImgFile());
+            materialDTO.setImgUrl(imgUrl);
+        }
+
+
         materialService.register(materialDTO);
         return "redirect:/material/list";
     }

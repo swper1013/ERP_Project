@@ -37,6 +37,8 @@ public class MaterialEntity {
     private String matText;//메모
     @Column(columnDefinition = "text")
     private String content;
+    @Column
+    private String imgUrl;//url
 
     @ManyToOne
     @JoinColumn(name = "mno")
