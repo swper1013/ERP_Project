@@ -18,6 +18,8 @@ import java.time.LocalDate;
 public class MaterialDTO {
     private Long num;
     private String matName;     //자재명
+
+
     private String matCode;     //자재코드
     private int matAmount;      //수량
     private int matPrice;       //가격
