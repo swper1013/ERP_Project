@@ -50,15 +50,15 @@ public class MaterialSearchImpl extends QuerydslRepositorySupport implements Mat
 
             query.where(booleanBuilder);
         }
-       query.where(materialEntity.matNum.gt(0L));
+        query.where(materialEntity.matNum.gt(0L));
         System.out.println("where문 추가"+query);
         this.getQuerydsl().applyPagination(pageable,query);
 
         List<MaterialEntity> materialEntityList = query.fetch();
 
         List<MaterialDTO> materialDTOList =
-        materialEntityList.stream().map(materialEntity1 -> mapper.map(materialEntity1, MaterialDTO.class))
-                .collect(Collectors.toList());
+                materialEntityList.stream().map(materialEntity1 -> mapper.map(materialEntity1, MaterialDTO.class))
+                        .collect(Collectors.toList());
 
         long count = query.fetchCount();
 

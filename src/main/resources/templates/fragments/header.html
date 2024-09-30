@@ -32,18 +32,25 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">공지사항</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/annon/main}">공지사항</a>
                     </li>
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">질문게시판</a>
+                        <a class="nav-link" href="/board/list">질문게시판</a>
                     </li>
 
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">로그인</a>
+                        <a class="nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">로그인</a>
+                        <a class="nav-link" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
+
+                    </li>
+
+                    <li>
+                        <a class="nav-link" th:href="@{/signpage}" sec:authorize="isAnonymous()">회원가입</a>
+                        <a class="nav-link" th:href="@{/mypage_chk}" sec:authorize="isAuthenticated()">내정보</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

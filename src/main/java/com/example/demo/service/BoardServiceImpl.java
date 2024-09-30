@@ -47,7 +47,7 @@ public class BoardServiceImpl implements BoardService {
         List<Board> boardList = boardRepository.findAll();
 
         List<BoardDTO> boardDTOList =
-                boardList.stream().map(abc -> mapper.map(abc, BoardDTO.class)).collect(Collectors.toList());
+        boardList.stream().map(abc -> mapper.map(abc, BoardDTO.class)).collect(Collectors.toList());
 
         return boardDTOList;
     }
@@ -111,8 +111,9 @@ public class BoardServiceImpl implements BoardService {
                 .orElseThrow(EntityNotFoundException::new);
 
         board.setContent(boardDTO.getContent());
+        board.setTitle(boardDTO.getTitle());
 
-        return boardDTO.getBno();
+    return boardDTO.getBno();
     }
 
 
