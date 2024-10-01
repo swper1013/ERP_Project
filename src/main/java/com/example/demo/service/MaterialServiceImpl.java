@@ -94,6 +94,7 @@ public class MaterialServiceImpl implements MaterialService {
         MaterialEntity materialEntity = materialRepository.findById(materialDTO.getNum())
                 .orElseThrow(EntityNotFoundException::new);
 
+
         materialEntity.setMatName(materialDTO.getMatName());
         materialEntity.setMatCode(materialDTO.getMatCode());
         materialEntity.setMatAmount(materialDTO.getMatAmount());

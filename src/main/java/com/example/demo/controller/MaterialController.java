@@ -69,7 +69,11 @@ public class MaterialController {
         if (materialDTOPageResponesDTO.getDtoList() == null) {
             materialDTOPageResponesDTO.setDtoList(Collections.emptyList());
         }
+
         List<BimgDTO> bimgDTOList =  bimgSerivce.allread();
+        for (BimgDTO bimgDTO : bimgDTOList) {
+            log.info("BimgDTO: {}", bimgDTO);
+        }
         bimgDTOList.forEach(bimgDTO -> log.info(bimgDTO));
         model.addAttribute("materialDTOPageResponesDTO",materialDTOPageResponesDTO);
         model.addAttribute("bimgDTOList",bimgDTOList);
@@ -79,6 +83,7 @@ public class MaterialController {
     public String readOne(Long num, Model model){
         MaterialDTO materialDTO = materialService.read(num);
         BimgDTO bimgDTO = bimgSerivce.read(num);
+
 
         model.addAttribute("materialDTO",materialDTO);
         model.addAttribute("bimgDTO",bimgDTO);
