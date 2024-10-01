@@ -119,6 +119,8 @@ public class MaterialController {
 
         Long number = materialService.delete(num);
 
+
+
         if (number == null) {
             //실패했습니다. 라는
             log.info("혹시 컨트롤러까진 오셨나요");

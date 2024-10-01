@@ -1,8 +1,11 @@
 package com.example.demo.repository;
 
 import com.example.demo.entity.BimgEntity;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -14,4 +17,5 @@ public interface BimgRepository  extends JpaRepository<BimgEntity,Long> {
 
     @Query("select a from BimgEntity a where a.materialEntity.num is not null")
     List<BimgEntity> findallall();
+    void deleteByMaterialEntity_Num(Long num);
 }

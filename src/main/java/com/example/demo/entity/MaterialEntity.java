@@ -21,7 +21,7 @@ public class MaterialEntity {
 
     @Column(length = 250,nullable = false)
     private String matName;//자재명
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false)
     private String matCode;//자재코드
     @Column(nullable = false)
     private int matAmount;//수량

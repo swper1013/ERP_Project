@@ -4,8 +4,10 @@ import com.example.demo.dto.BoardDTO;
 import com.example.demo.dto.MaterialDTO;
 import com.example.demo.dto.PageRequestDTO;
 import com.example.demo.dto.PageResponesDTO;
+import com.example.demo.entity.BimgEntity;
 import com.example.demo.entity.Board;
 import com.example.demo.entity.MaterialEntity;
+import com.example.demo.repository.BimgRepository;
 import com.example.demo.repository.MaterialRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -36,6 +38,7 @@ public class MaterialServiceImpl implements MaterialService {
     private String MaterialImgLocation;
 
     private final MaterialRepository materialRepository;
+    private final BimgRepository bimgRepository;
     private ModelMapper mapper = new ModelMapper();
     private final BimgSerivce bimgSerivce;
 
@@ -108,11 +111,16 @@ public class MaterialServiceImpl implements MaterialService {
 
     }
 
+    @Transactional
     @Override
     public Long delete(Long num) {
+        bimgRepository.deleteByMaterialEntity_Num(num);
         MaterialEntity materialEntity =  materialRepository.findById(num).get();
+
         if (materialEntity != null) {
+            bimgRepository.deleteById(num);
             materialRepository.deleteById(num);
+
             log.info("혹시 서비스까진 오셨나요");
             return materialEntity.getNum();
         } else {
