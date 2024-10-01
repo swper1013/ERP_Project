@@ -13,4 +13,10 @@ public class BimgDTO {
     private String oriimgname;//오리지널 name
     private String img_url;//사진 경로
     private MaterialDTO materialDTO;//엔티티로 변환할꺼야
+
+
+    public BimgDTO setMaterialDTO(MaterialDTO materialDTO) {
+        this.materialDTO = materialDTO;
+        return this;
+    }
 }

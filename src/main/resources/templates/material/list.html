@@ -100,6 +100,10 @@
 
         <form th:action="@{/material/modify}"  method="post" class="col shadow subpage">
             <div>
+                <div class="row mt-2">
+                    <div class="col">이미지 사진</div>
+                    <div class="col matimg"></div>
+                </div>
 
                 <div class="row mt-2">
                     <div class="col">자재명</div>
@@ -190,6 +194,7 @@
                 $(".subpage").hide();
                 $(".subpage2").hide();
                 let dtoList = [[${materialDTOPageResponesDTO.dtoList}]];
+               // let imgList = [[${bimgDTOList.imgList}]];
                 let num;
 
                 document.querySelector(".pagination").addEventListener("click", function (e) {
@@ -216,6 +221,7 @@
                         alert("신중해")
                     }
                 });
+                console.log("시이이발 이거냐?"+imgfile.num);
 
                 $(".matcodelink, .matNamelink").on("click", function () {
                     $(".subpage").show();
@@ -224,6 +230,7 @@
                     for (let i = 0; i < dtoList.length; i++) {
                         if (dtoList[i].num === num) {
 
+                            //console.log("이건 되자나 "+dtoList[i]);
                             $(".matNameOne").text(dtoList[i].matName);
                             $(".matCodeOne").text(dtoList[i].matCode);
                             $(".matAmountOne").text(dtoList[i].matAmount);

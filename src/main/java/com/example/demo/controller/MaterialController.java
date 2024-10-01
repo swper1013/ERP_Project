@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.Console;
 import java.security.Principal;
 import java.util.Collections;
+import java.util.List;
 
 @Controller
 @Log4j2
@@ -64,10 +65,14 @@ public class MaterialController {
     public  String list(Model model, PageRequestDTO pageRequestDTO){
         PageResponesDTO<MaterialDTO> materialDTOPageResponesDTO = materialService.list(pageRequestDTO);
 
+
         if (materialDTOPageResponesDTO.getDtoList() == null) {
             materialDTOPageResponesDTO.setDtoList(Collections.emptyList());
         }
+        List<BimgDTO> bimgDTOList =  bimgSerivce.allread();
+        bimgDTOList.forEach(bimgDTO -> log.info(bimgDTO));
         model.addAttribute("materialDTOPageResponesDTO",materialDTOPageResponesDTO);
+        model.addAttribute("bimgDTOList",bimgDTOList);
         return "material/list";
     }
     @GetMapping("/read")
