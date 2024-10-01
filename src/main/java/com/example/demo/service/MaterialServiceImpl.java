@@ -123,6 +123,7 @@ public class MaterialServiceImpl implements MaterialService {
 
             log.info("혹시 서비스까진 오셨나요");
             return materialEntity.getNum();
+
         } else {
             return null;
         }
