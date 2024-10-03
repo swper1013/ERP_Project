@@ -10,18 +10,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeEntity {
-
-    @Id
+    @Id //PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long eno;                   //번호
-    @Column
-    private String name;                //이름
-    @Column
-    private LocalDate age;                    //나이
-    @Column
-    private String gender;              //성별
-    @Column
-    private String email;               //이메일
     @Column
     private String job;                 //직무
     @Column
@@ -30,8 +21,7 @@ public class EmployeEntity {
     private LocalDate join_date;        //입사일자
     @Column
     private String sal;                 //연봉
-
-    @ManyToOne
+    @ManyToOne //FK
     @JoinColumn(name = "mno")
-    private UsersEntity usersEntity;
+    private UsersEntity mno;
 }

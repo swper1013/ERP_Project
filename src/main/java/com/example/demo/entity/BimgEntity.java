@@ -28,7 +28,7 @@ public class BimgEntity extends BaseEntity {
     private MaterialEntity materialEntity;//어떤 놈의 사진
 
 
-    //등록일자 혹은 만든이 기타등등이 들어감
+
 
 
 }
