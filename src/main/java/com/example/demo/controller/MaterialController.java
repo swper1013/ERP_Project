@@ -69,7 +69,7 @@ public class MaterialController {
 
     }
     @PreAuthorize("isAuthenticated()")
-    @GetMapping("/list")
+    @GetMapping("/list")//reposne -> result
     public  String list(Model model, PageRequestDTO pageRequestDTO, Principal principal){
         //세션 유저정보 가져옴
         UsersDTO usDTO = userService.getUser(principal.getName());
